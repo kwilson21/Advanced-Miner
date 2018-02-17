@@ -2,7 +2,7 @@
 Are you tired of mining pools charging ridiculous fees for subpar customer service? Are an experienced miner who manually mines their own coins for profit? Then Advanced Miner is for you!
 
 Advanced miner is an NVIDIA multi-algorithm profit switching calculator and miner combined. Written in python 3.6, Advanced Miner supports 9 different algorithms and as many coins as you can find!
-* [Getting Started](https://github.com/Agent21/Advanced-Miner#dependencies)
+
 ## Getting Started
 Make sure that you install python.
 
