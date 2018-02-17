@@ -106,7 +106,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             se_prices = requests.get('https://stocks.exchange/api2/prices').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Stocks.Exchange api, trying again in 30 seconds...")
             time.sleep(30)
@@ -118,7 +118,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             ts_prices = requests.get('https://tradesatoshi.com/api/public/getmarketsummaries').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Trade Satoshi api, trying again in 30 seconds...")
             time.sleep(30)
@@ -130,7 +130,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             sx_prices = requests.get('https://www.southxchange.com/api/prices').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Southxchange api, trying again in 30 seconds...")
             time.sleep(30)
@@ -142,7 +142,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             ct_prices = requests.get('https://www.cryptopia.co.nz/api/GetMarkets').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Cryptopia api, trying again in 30 seconds...")
             time.sleep(30)
@@ -154,7 +154,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             cb_prices = requests.get('https://api.crypto-bridge.org/api/v1/ticker').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Crypto-bridge api, trying again in 30 seconds...")
             time.sleep(30)
@@ -166,7 +166,7 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         try:
             btc_price = requests.get('https://api.coinbase.com/v2/exchange-rates?currency=BTC').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError) as err:
+        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Coinbase api, trying again in 30 seconds...")
             time.sleep(30)
