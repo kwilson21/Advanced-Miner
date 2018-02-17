@@ -1,0 +1,525 @@
+ [{  
+     "coin":  "CBS", 
+     "api_url":  "http://exp.cerberuscoin.com/api/getdifficulty", 
+     "block_reward":  6.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "2023", 
+     "exchange":  {
+         "Crypto-Bridge": "CLS7ktXpk2YYA8eURbLsWPKFmzBGpSwRqG",  
+         "Stocks.Exchange":  "CMHkNCg6zE242hvX4a21kTvSKPnT43Fvy5",
+        "Southxchange":  "NA",
+        "Cryptopia":  "NA",
+        "Trade Satoshi":  "NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "CRC", 
+     "api_url":  "http://explorer.cryptopros.us/api/getdifficulty", 
+     "block_reward":  10.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw", 
+     "port": "4233",
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "CPnN4TwxSNdZaTDQdeVy8XTUj8SZQxqWdv",
+        "Cryptopia":  "CJG3XA3bJUYyfrTYJLC4GEg5tLXB2ukasM",
+        "Southxchange":  "NA",
+        "Trade Satoshi":  "NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "DSR", 
+     "api_url":  "http://desire.lchain.cc/api/getdifficulty", 
+     "block_reward":  18.544, 
+     "pool_url":  "stratum+tcp://pool.unimining.net",
+     "port": "4234", 
+     "exchange":  {
+         "Crypto-Bridge": "DSZCZTxzZgqL5yE19aVVwZkHjC4gynhnL3",  
+         "Stocks.Exchange": "DDnfG1Zb2NjhC4kB7gep7R9ThkcbaSWU4y",
+         "Cryptopia":  "NA",
+         "Southxchange":  "NA",
+         "Trade Satoshi":  "NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "GOA", 
+     "api_url":  "http://goacoin.be/api/getdifficulty", 
+     "block_reward":  10.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "1997", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange": "GfSGvwxUrv3EYAvPoTubqX5TkmuBBLFmdM",
+         "Cryptopia":  "NA",
+         "Southxchange":  "NA",
+         "Trade Satoshi":  "NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "GBX", 
+     "api_url":  "http://explorer.gobyte.network:5001/api/getdifficulty", 
+     "block_reward":  7.50, 
+     "pool_url":  "stratum+tcp://eu1.altminer.net",
+     "port":  "10000", 
+     "exchange":  {
+         "Crypto-Bridge": "GWL9ViqR3xrGkyfAKAhsPx1fEuf8uDUA4X",  
+         "Stocks.Exchange": "GX3mf6j8LGh8YGf4NXTrrkwwiGxJoAUHWK",
+        "Cryptopia":  "GdRdiLN2hFzAh1m27aJ3PSzter6jgVJGjV",
+        "Trade Satoshi":  "NA",
+        "Southxchange":  "NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "GUN", 
+     "api_url":  "https://chainz.cryptoid.info/gun/api.dws?q=getdifficulty", 
+     "block_reward":  150.0, 
+     "pool_url":  "",
+     "port":  "", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia" : "GjTg7epKHY22DZ8jWrG1eEGH3SLN14ZXUK",
+         "Stocks.Exchange":  "NA",
+         "Southxchange":  "NA",
+         "Trade Satoshi":  "NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "HAL", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?21-Halcyon-HAL-neoscrypt-calculator/", 
+     "block_reward":  1.0, 
+     "pool_url":  "",
+     "port":  "", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia" : "HGfYSwPLD3QzZB65mq7EJxJiy9FfYiGvah",
+         "Stocks.Exchange":  "NA",
+         "Southxchange":  "NA",
+         "Trade Satoshi":  "NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "INN", 
+     "api_url":  "http://explorer.innovacoin.info/api/getdifficulty", 
+     "block_reward":  10.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "1888", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange": "i5KCkt7HGvhhY3kYBCays1dkAYA2Zb7WUT",
+        "Cryptopia":  "iRSE1mko3Wv81XmYvZFPvhu6bVDmKgjoRa",
+        "Trade Satoshi":  "NA",
+        "Southxchange":  "NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "ONEX", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?28-OnexCash-ONEX-neoscrypt-calculator/", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://eu1.altminer.net",
+     "port":  "10005", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "XXzmfCu67PjHxCwsr2qhXGnwCCzBvSQP3j",
+         "Cryptopia":"NA",
+         "Southxchange":"NA",
+         "Trade Satoshi":"NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "ORB", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?18-Orbitcoin-ORB-neoscrypt-calculator/", 
+     "block_reward":  0.38, 
+     "pool_url":  "",
+     "port":  "", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Trade Satoshi":  "oMdoLsRDF9iFj4hqCQAjAKAKoRwdKAMbax",
+        "Cryptopia": "obRRKdSSLry9NGRS2R3Pj1Za2yiEMNbADR",
+        "Southxchange":"NA",
+        "Stocks.Exchange":"NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "PXC", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?19-Phoenixcoin-PXC-neoscrypt-calculator/", 
+     "block_reward":  25.0, 
+     "pool_url":  "",
+     "port":  "", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia" : "PqEjZ29uq7MnYEGrBk9bauoMMPH693krFF",
+         "Southxchange":"NA",
+         "Stocks.Exchange": "NA",
+         "Trade Satoshi":"NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "SPK", 
+     "api_url":  "http://explorer.sparks.gold/api/getdifficulty", 
+     "block_reward":  9.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "1995", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "GMXbjx6KN1DtmTfv4eH9wePrhg6SksYJL6",
+         "Trade Satoshi":  "GK48JGsTG57Raz5wuSJVMnz1xVnpgGJK4L",
+        "Southxchange":  "NA",
+        "Cryptopia":"NA"
+    },
+         "algo":  "neoscrypt"
+        },
+ {  
+     "coin":  "RAP", 
+     "api_url":  "http://explorer.our-rapture.com/api/getdifficulty", 
+     "block_reward":  7.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "2030", 
+     "exchange":  {
+         "Crypto-Bridge": "RJSYeYFSjfQosXWKT97tMd793yFdEugB5E",  
+         "Stocks.Exchange":  "RDygPserEYJxuhC7FQYdhEBhv2N1S61kTJ",
+        "Southxchange":  "RD3LnEGxfr5JoRGvGpWVnCW2nsAAJ6iCuf",
+        "Cryptopia":"NA",
+        "Trade Satoshi":"NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "TZC", 
+     "api_url":  "https://explorer.trezarcoin.com/api/getdifficulty", 
+     "block_reward":  67.0, 
+     "pool_url":  "",
+     "port":  "", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange": "TczFvGndB8bSz3vse2oN5NkHCMxiRkdnfS",
+        "Cryptopia":  "Ttk4GgHT1ciWgsn9EXtj6wJ1jnLmfFW5kB",
+        "Trade Satoshi":"NA",
+        "Southxchange":"NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "TUN", 
+     "api_url":  "http://173.249.24.88:3001/api/getdifficulty", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://173.249.24.88",
+     "port":  "4233", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "TWTUivdqqACrKFK5HsLiQ3GvtvLrxxQD4w",
+        "Southxchange":  "TQTATYGkz3u1XEyGQPhYB27sQybi1qSkhb",
+        "Cryptopia":"NA",
+        "Trade Satoshi":"NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "UFO", 
+     "api_url":  "https://chainz.cryptoid.info/ufo/api.dws?q=getdifficulty", 
+     "block_reward":625.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "3033", 
+     "exchange":  {
+        "Crypto-Bridge": "C4xYYuF5752sFfnfn7eCnNBFq8F4kGbA2Y",  
+        "Stocks.Exchange":  "NA",
+       "Southxchange":  "NA",
+       "Cryptopia":"NA",
+       "Trade Satoshi":"NA"},
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "VIVO", 
+     "api_url":  "https://chainz.cryptoid.info/vivo/api.dws?q=getdifficulty", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://pool.CryptoPros.us",
+     "port":  "4233", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "VSwgJYstkma9mpQXRf7bMKwv9hHs6EM7kt",
+        "Cryptopia":  "VFkyaRaTRvaF8feE6MHpRs2TBU9FPRd6La",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA"
+    },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "NYX", 
+     "api_url":  "http://explorer.nyxcoin.org/api/getdifficulty", 
+     "block_reward":  2.0, 
+     "pool_url":  "stratum+tcp://eu.cryptoally.net",
+     "port":  "4233", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Southxchange" : "NizFiGwGQCvr3TvefRFrm9GAtK3hWEyQtC",
+         "Trade Satoshi":"NA",
+         "Cryptopia":"NA",
+         "Stocks.Exchange":"NA"
+        },
+     "algo":  "neoscrypt"
+    },
+ {  
+     "coin":  "DIN", 
+     "api_url":  "http://explorer.dinerocoin.org/api/getdifficulty", 
+     "block_reward":  22.5, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "2140", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "DPmLtE6kPydQBxXgfNe4MvW61uStHYKEYR",
+         "Trade Satoshi":  "D7qFiemvMpfj43xxp8WMesFhtCxp2QXzcd",
+        "Southxchange":  "D5UBTBkD5RQ8SrbaZiuz5q311k2CjyE5UJ",
+        "Cryptopia":"NA"
+    },
+         "algo":  "neoscrypt"
+        },
+ {  
+     "coin":  "STONE", 
+     "api_url":  "http://stonecrypto.org/api/getdifficulty", 
+     "block_reward":  6.0, 
+     "pool_url":  "stratum+tcp://arcpool.com",
+     "port":  "31011", 
+     "exchange":  {
+         "Crypto-Bridge": "ShzusEBrwTxviETJosjK1uVBZh7CJsxf8J",  
+         "Stocks.Exchange":  "Si86UUXz6q6Qh4xkK93DzNunFrtAA1WDXH",
+         "Cryptopia":"NA",
+         "Southxchange":"NA",
+         "Trade Satoshi":"NA"
+        },
+     "algo":  "neoscrypt"
+    },
+    {
+    "coin":  "ZEN", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?6-ZenCash-ZEN-Equihash-calculator/", 
+     "block_reward":  11.0, 
+     "pool_url":  "zhash.pro",
+     "port":  "3057", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia":  "znfPMXHLTDBKFScatz2BELh6fcvEBSSqUuV",
+         "Trade Satoshi": "znc1ZB6fbNhpUY2DzLpYK2yqjAEycUor2ea",
+         "Southxchange":"NA",
+         "Stocks.Exchange":"NA"
+        },
+     "algo":  "equihash"
+    },
+    {
+     "coin":  "BSD", 
+     "api_url":  "https://chainz.cryptoid.info/bsd/api.dws?q=getdifficulty", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://yiimp.eu",
+     "port":  "3739", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia":  "iHb9mQkKqRAJxCUCVcKi6VXCkGbRPek4Pw",
+         "Southxchange": "NA",
+         "Stocks.Exchange":"NA",
+         "Trade Satoshi":"NA"
+        },
+     "algo":  "xevan"
+    },
+    {
+     "coin":  "ORE", 
+     "api_url":  "http://ore.explorerz.top:3017/api/getdifficulty", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "1982", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "GS7RjUmvVvHbJQ6bHStdiVeNDmybANUT8h",
+         "Cryptopia":"NA",
+         "Southxchange":"NA",
+         "Trade Satoshi":"NA"
+        },
+     "algo":  "lyra2v2" 
+    },
+    {
+    "coin":  "ZEC", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?8-ZCash-ZEC-Equihash-calculator/", 
+     "block_reward":  10.0, 
+     "pool_url":  "zec-us-east1.nanopool.org",
+     "port":  "6666", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia":  "t1KHU4PvVkjvz4JTVDANQpqi5LML4cigKpq",
+        "Trade Satoshi":  "t1PMRr8u2gt8iHLwUTTD1tyEySjNrnRndpo",
+        "Southxchange":"NA",
+        "Stocks.Exchange":"NA"
+    },
+     "algo":  "equihash"
+    },
+    {
+    "coin":  "BTX", 
+     "api_url":  "https://chainz.cryptoid.info/btx/api.dws?q=getdifficulty", 
+     "block_reward":  3.125, 
+     "pool_url":  "stratum+tcp://bitcorepool.cc",
+     "port":  "1111", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Cryptopia":  "12sSCPWX9wCibVqkxJXuXbq7w1CMcErrA2",
+         "Trade Satoshi":  "14eEFAzhve7cr3oyBNad5F2PPz3oa5iQP4",
+         "Stocks.Exchange":"NA",
+         "Southxchange":"NA"
+        },
+     "algo":  "bitcore"
+    },
+    {
+     "coin":  "MUN", 
+     "api_url":  "http://explorer.muncoin.info/api/getdifficulty", 
+     "block_reward":  5.0, 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "1998", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Trade Satoshi":  "MAMDcRXT7Kj1Y69dngR3kM3Vib83BHi5Vk",
+         "Stocks.Exchange": "MU7dsPfbvvqkDqnfAap7bvFiXhmrsn5n3N",
+         "Southxchange":"NA",
+         "Cryptopia":"NA"
+        },
+     "algo":  "skunk"
+    },
+    {
+     "coin":  "ZCL", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?9-ZClassic-ZCL-Equihash-calculator/", 
+     "block_reward":  12.5, 
+     "pool_url":  "zcl.2miners.com",
+     "port":  "2020", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Trade Satoshi":  "t1JyV3D3cmTU2TQA7p82WacdhkN7zyW7jUX",
+         "Cryptopia": "NA",
+         "Southxchange":"NA",
+         "Stocks.Exchange":"NA"
+        },
+     "algo":  "equihash"
+    },
+    {
+     "coin":  "HUSH", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?1-Hush-HUSH-Equihash-calculator/", 
+     "block_reward":  12.5, 
+     "pool_url":  "hush.2miners.com",
+     "port":  "7070", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Trade Satoshi":  "t1J8CUMzugSSYv99LmXnQGURfuCZKC7KosB",
+         "Cryptopia": "t1Kf3ovZo5xavCz4RzkGn3ud9jGik9jgXCZ",
+         "Stocks.Exchange":"NA",
+         "Southxchange":"NA"
+        },
+     "algo":  "equihash"
+    },
+    {
+     "coin":  "BTCZ", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?7-BitcoinZ-BTCZ-Equihash-calculator/", 
+     "block_reward":  12500, 
+     "pool_url":  "mine-us.miningspeed.com",
+     "port":  "3072", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "t1gR2UdgGVHmpUd4eDhCcqLYUygkxRu5BSP",
+        "Trade Satoshi": "t1Vqet1AVyf9MfC5X9nvZEuFehN4wZQ3bSy",
+        "Southxchange":"NA",
+        "Cryptopia":"NA"
+    },
+     "algo":  "equihash"
+    },
+    {
+    "coin":  "LIZ", 
+    "api_url":  "http://lizus.lchain.cc/api/getdifficulty", 
+    "block_reward":  12.5, 
+    "pool_url":  "stratum+tcp://pool.bsod.pw",
+    "port":  "2016", 
+    "exchange":  {
+        "Crypto-Bridge": "LcHd9KEvtUe5T5c9baK4XjRUQ9LjZ5hmj4",  
+        "Stocks.Exchange":  "Lc3mzJeMrX4kQJtwNL6ov7LBvZMWaaMuXz",
+        "Cryptopia":  "NA",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA"
+    },
+    "algo":  "skein"
+    },
+    {
+    "coin":  "DNR", 
+    "api_url":  "http://denarius.name/api/getdifficulty", 
+    "block_reward":  3.0, 
+    "pool_url":  "stratum+tcp://yiimp.eu",
+    "port":  "8533", 
+    "exchange":  {
+        "Crypto-Bridge": "NA",  
+        "Stocks.Exchange":  "DJn4J7ANdw1J1Wy8YRJ6ewhCGtyY5W3Qcm",
+        "Cryptopia":  "DJn4J7ANdw1J1Wy8YRJ6ewhCGtyY5W3Qcm",
+        "Southxchange":"DJn4J7ANdw1J1Wy8YRJ6ewhCGtyY5W3Qcm",
+        "Trade Satoshi":"DJn4J7ANdw1J1Wy8YRJ6ewhCGtyY5W3Qcm"
+    },
+    "algo":  "tribus"
+    },
+    {
+    "coin":  "ZEL", 
+    "api_url":  "https://www.crypto-coinz.net/coin-info/?58-ZelCash-ZEL-Equihash-calculator/", 
+    "block_reward":  150.0, 
+    "pool_url":  "mine-us.miningspeed.com",
+    "port":  "2062", 
+    "exchange":  {
+        "Crypto-Bridge": "NA",  
+        "Stocks.Exchange":  "t1ekDo2pKFCNu2uJR8obG4kC46A8utxnDyc",
+        "Cryptopia":  "NA",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA"
+    },
+    "algo":  "equihash"
+    },
+    {
+    "coin":  "BWK", 
+    "api_url":  "http://explorer.bulwarkcrypto.com/api/getdifficulty", 
+    "block_reward":  33.33, 
+    "pool_url":  "stratum+tcp://pool.bsod.pw",
+    "port":  "3833", 
+    "exchange":  {
+        "Crypto-Bridge": "bMM3cGD2UEeoTxAkqx4LCaLSrUu9GTH7UZ",  
+        "Stocks.Exchange":  "bb74uDU4SccHCP8k1JNi8zB2RUScCs27TS",
+        "Cryptopia":  "NA",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA"
+    },
+    "algo":  "nist5"
+    },
+    {
+    "coin":  "END", 
+    "api_url":  "http://exp.endorphin.network/api/getdifficulty", 
+    "block_reward":  5.0, 
+    "pool_url":  "stratum+tcp://pool.bsod.pw",
+    "port":  "2147", 
+    "exchange":  { 
+        "Stocks.Exchange":  "NA",
+        "Cryptopia":  "NA",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA",
+        "Crypto-Bridge":  "EarctuftiaC5YqsJshnmSUecN8Chz18xHE"
+    },
+    "algo":  "neoscrypt"
+    },
+    {
+    "coin":  "CROP", 
+    "api_url":  "http://93.184.160.140:8080/api/getdifficulty", 
+    "block_reward":  15.0, 
+    "pool_url":  "stratum+tcp://tiny-pool.com",
+    "port":  "4233", 
+    "exchange":  { 
+        "Stocks.Exchange":  "NA",
+        "Cryptopia":  "NA",
+        "Southxchange":"NA",
+        "Trade Satoshi":"NA",
+        "Crypto-Bridge":  "c3Uq2EbBsD6fKfwHBuN9VY1e7DAZ3qEXoq"
+    },
+    "algo":  "neoscrypt"
+    }
+]

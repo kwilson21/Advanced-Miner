@@ -1,0 +1,20 @@
+{
+    "algo":
+    {
+        "neoscrypt":  "https://github.com/justaminer/hsrm-fork/raw/master/hsrminer_neoscrypt_fork.zip"
+        ,
+        "equihash":  "https://github.com/nemosminer/EWBF-Zec-Miner/releases/download/0.3.4b/0.3.4b.7z"
+        ,
+        "skunkhash":  "https://github.com/nemosminer/tpruvot-ccminer/releases/download/v2.2-tpruvot/ccminer-x86-2.2.7z"
+        ,
+        "xevan":  "https://github.com/nemosminer/ccminer-xevan/releases/download/ccminer-xevan/ccminer_x86.7z"
+        ,
+        "nist5":  "https://github.com/nemosminer/ccminer-hcash/releases/download/alexishsr/ccminer-hsr-alexis-x86-cuda8.7z"
+        ,
+        "lyra2v2":  "https://github.com/nemosminer/ccminer-hcash/releases/download/alexishsr/ccminer-hsr-alexis-x86-cuda8.7z"
+        ,
+        "tribus":  "https://github.com/tpruvot/ccminer/releases/download/2.2.4-tpruvot/ccminer-x86-2.2.4-cuda9.7z" 
+        ,
+        "skein":   "https://github.com/nemosminer/ccminer-hcash/releases/download/alexishsr/ccminer-hsr-alexis-x86-cuda8.7z"  
+    }
+}
