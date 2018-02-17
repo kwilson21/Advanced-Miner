@@ -494,23 +494,26 @@ while True:
             for key in coin_info:
                 if key['coin'] == coin_name:
                     key_found = True
+                    break
                 else:
                     key_found = False
 
             while not re.match("^[A-Za-z]*$", coin_name) or not key_found:
                 minerlog.info("ERROR: Please enter a coin from the list above!")
                 minerlog.debug("User entered bad input, prompting again...")
-                coin_name = input("Would you like to mine a different coin instead?: ")
+                coin_name = input("Please enter the coin you would like to mine: ")
 
                 for key in coin_info:
                     if key['coin'] == coin_name:
                         key_found = True
+                        break
                     else:
                         key_found = False
             start_miner(coin_name,coin_info)
+            finish()
         else:
             # If the user does not want to mine a coin, exit the program.
-            finish()
+            sys.exit()
 
     # Create a timer and prompt the user to switch coins, if they do not respond before the time is up,
     # the program will automatically switch coins.
