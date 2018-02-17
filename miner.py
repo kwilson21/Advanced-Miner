@@ -497,7 +497,7 @@ while True:
                 else:
                     key_found = False
 
-            while not re.match("^[A-Za-z]*$", coin_name) and not key_found:
+            while not re.match("^[A-Za-z]*$", coin_name) or not key_found:
                 minerlog.info("ERROR: Please enter a coin from the list above!")
                 minerlog.debug("User entered bad input, prompting again...")
                 coin_name = input("Would you like to mine a different coin instead?: ")
