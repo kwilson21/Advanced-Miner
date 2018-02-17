@@ -404,8 +404,7 @@ if not config_load_successful:
 
 # Begin loading the hashrates for each algorithm.
 # If a hashrate is not found for the algorithm, prompt the user to benchmark the algorithm.
-i=0
-for algo in algorithm_list:
+for i,algo in enumerate(algorithm_list):
     new_algo_config = {}
     algo_config_load_successful,algo,new_algo_config = coincalc.load_algo_config(config,algo)
     if not algo_config_load_successful:
@@ -433,7 +432,6 @@ for algo in algorithm_list:
         skein_config = new_algo_config
     elif algo == "tribus":
         tribus_config = new_algo_config
-    i+=1
 
 while True:
     # Start the calculator
