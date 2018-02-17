@@ -87,7 +87,6 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
     price_list = []
     coins_mined = 0.0
     coin_profit = 0.0
-    prices_loaded = False
     se_prices = ''
     ts_prices = ''
     sx_prices = ''
@@ -101,6 +100,8 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
     # Begin fetching the price of each coin
     calclog.info("Fetching coin prices...")
 
+    prices_loaded = False
+    
     # Load the prices of coins on stocks exchange.
     while not prices_loaded:
         try:
@@ -225,9 +226,9 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
         buy_price_ct = 0.0
         buy_price_cb = 0.0
         exchange = ''
-        coin_name = key['coin']
 
-        # Get the difficulty and block reward for each coin.     
+        # Gather information for the coin and store them in variables 
+        coin_name = key['coin']   
         url = key['api_url']
         block_reward = key['block_reward']
         pool_url = key['pool_url']
@@ -269,13 +270,19 @@ def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,
             # Add Cryptopia exchange prices
             for i in range(len(ct_prices['Data'])):
                 if ct_prices['Data'][i]['Label'] == coin_name + '/BTC':
-                    buy_price_ct = float(ct_prices['Data'][i]['LastPrice'])
+                    try:
+                        buy_price_ct = float(ct_prices['Data'][i]['LastPrice'])
+                    except TypeError:
+                        buy_price_ct = 0.0
                     break
 
             # Add Crypto-bridge exchange prices
             for i in range(len(cb_prices)):
                 if cb_prices[i]['id'] == coin_name + '_BTC':
-                    buy_price_cb = float(cb_prices[i]['last'])
+                    try:
+                        buy_price_cb = float(cb_prices[i]['last'])
+                    except TypeError:
+                        buy_price_cb = 0.0
                     break
 
             # Find the BTC price in the json file queried from coinbase, then calculate it's value in USD.
