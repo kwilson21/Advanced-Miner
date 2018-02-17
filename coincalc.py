@@ -15,6 +15,7 @@ def load_difficulty(url,name):
     difficulty_loaded = False
 
     if "crypto-coinz" in url:
+        i=0
         while not difficulty_loaded:
             difficulty_loaded = False
             try:
@@ -29,13 +30,21 @@ def load_difficulty(url,name):
             except (requests.exceptions.HTTPError, ValueError) as err:
                 calclog.error("Error loading " + name + " difficuly. Retrying in 10 seconds...")
                 time.sleep(10)
+                i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
                 difficulty = 0
                 return difficulty, difficulty_loaded
+            finally:
+                if i == 3:
+                    calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                    difficulty = 0
+                    return difficulty, difficulty_loaded
+
 
     elif "fsight" in url:
         difficulty_loaded = False
+        i=0
         while not difficulty_loaded:
             try:
                 temp = requests.get(url).json()
@@ -44,12 +53,19 @@ def load_difficulty(url,name):
             except (requests.exceptions.HTTPError, ValueError) as err:
                 calclog.error("Error loading " + name + " difficuly. Retrying in 10 seconds...")
                 time.sleep(10)
+                i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
                 difficulty = 0
                 return difficulty, difficulty_loaded
+            finally:
+                if i == 3:
+                    calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                    difficulty = 0
+                    return difficulty, difficulty_loaded
     
     elif "trezar" in url or "denarius" in url:
+        i=0
         difficulty_loaded = False
         while not difficulty_loaded:
             try:
@@ -59,12 +75,19 @@ def load_difficulty(url,name):
             except (requests.exceptions.HTTPError, ValueError) as err:
                 calclog.error("Error loading " + name + " difficuly. Retrying in 10 seconds...")
                 time.sleep(10)
+                i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
                 difficulty = 0
                 return difficulty, difficulty_loaded
+            finally:
+                if i == 3:
+                    calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                    difficulty = 0
+                    return difficulty, difficulty_loaded
 
     else:
+        i=0
         difficulty_loaded = False
         while not difficulty_loaded:
             try:
@@ -73,10 +96,16 @@ def load_difficulty(url,name):
             except (requests.exceptions.HTTPError, ValueError) as err:
                 calclog.error("Error loading " + name + " difficuly. Retrying in 10 seconds...")
                 time.sleep(10)
+                i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
                 difficulty = 0
                 return difficulty, difficulty_loaded
+            finally:
+                if i == 3:
+                    calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                    difficulty = 0
+                    return difficulty, difficulty_loaded
 
     return difficulty, difficulty_loaded
 
