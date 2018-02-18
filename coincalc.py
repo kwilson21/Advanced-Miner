@@ -19,7 +19,17 @@ class globalvars():
     ct_prices = ''
     cb_prices = ''
     btc_price = ''
+    neoscrypt_config = {} 
+    equihash_config = {} 
+    xevan_config = {}
+    lyra2v2_config = {}
+    bitcore_config = {} 
+    skunk_config = {} 
+    nist5_config = {}
+    skein_config = {}
+    tribus_config = {}
     coins = {}
+    
 
 def load_difficulty(url,name):
     new_num = ''
@@ -386,41 +396,41 @@ def calc_coin(key):
         new_coin = coin.Coin(coin_name,coin_price,usd_price,exchange,block_reward,difficulty,algorithm)
 
         if algorithm == "neoscrypt":
-            hashrate = neoscrypt_config['hashrate']
-            electricity_costs = neoscrypt_config['electricity_costs']
-            power_consumption = neoscrypt_config['power_consumption']
+            hashrate = globalvars.neoscrypt_config['hashrate']
+            electricity_costs = globalvars.neoscrypt_config['electricity_costs']
+            power_consumption = globalvars.neoscrypt_config['power_consumption']
         if algorithm == "equihash":
-            hashrate = equihash_config['hashrate']
-            electricity_costs = equihash_config['electricity_costs']
-            power_consumption = equihash_config['power_consumption']
+            hashrate = globalvars.equihash_config['hashrate']
+            electricity_costs = globalvars.equihash_config['electricity_costs']
+            power_consumption = globalvars.equihash_config['power_consumption']
         if algorithm == "xevan":
-            hashrate = xevan_config['hashrate']
-            electricity_costs = xevan_config['electricity_costs']
-            power_consumption = xevan_config['power_consumption']
+            hashrate = globalvars.xevan_config['hashrate']
+            electricity_costs = globalvars.xevan_config['electricity_costs']
+            power_consumption = globalvars.xevan_config['power_consumption']
         if algorithm == "lyra2v2":
-            hashrate = lyra2v2_config['hashrate']
-            electricity_costs = lyra2v2_config['electricity_costs']
-            power_consumption = lyra2v2_config['power_consumption']
+            hashrate = globalvars.lyra2v2_config['hashrate']
+            electricity_costs = globalvars.lyra2v2_config['electricity_costs']
+            power_consumption = globalvars.lyra2v2_config['power_consumption']
         if algorithm == "bitcore":
-            hashrate = bitcore_config['hashrate']
-            electricity_costs = bitcore_config['electricity_costs']
-            power_consumption = bitcore_config['power_consumption']
+            hashrate = globalvars.bitcore_config['hashrate']
+            electricity_costs = globalvars.bitcore_config['electricity_costs']
+            power_consumption = globalvars.bitcore_config['power_consumption']
         if algorithm == "skunk":
-            hashrate = skunk_config['hashrate']
-            electricity_costs = skunk_config['electricity_costs']
-            power_consumption = skunk_config['power_consumption']
+            hashrate = globalvars.skunk_config['hashrate']
+            electricity_costs = globalvars.skunk_config['electricity_costs']
+            power_consumption = globalvars.skunk_config['power_consumption']
         if algorithm == "nist5":
-            hashrate = nist5_config['hashrate']
-            electricity_costs = nist5_config['electricity_costs']
-            power_consumption = nist5_config['power_consumption']
+            hashrate = globalvars.nist5_config['hashrate']
+            electricity_costs = globalvars.nist5_config['electricity_costs']
+            power_consumption = globalvars.nist5_config['power_consumption']
         if algorithm == "skein":
-            hashrate = skein_config['hashrate']
-            electricity_costs = skein_config['electricity_costs']
-            power_consumption = skein_config['power_consumption']
+            hashrate = globalvars.skein_config['hashrate']
+            electricity_costs = globalvars.skein_config['electricity_costs']
+            power_consumption = globalvars.skein_config['power_consumption']
         if algorithm == "tribus":
-            hashrate = tribus_config['hashrate']
-            electricity_costs = tribus_config['electricity_costs']
-            power_consumption = tribus_config['power_consumption']
+            hashrate = globalvars.tribus_config['hashrate']
+            electricity_costs = globalvars.tribus_config['electricity_costs']
+            power_consumption = globalvars.tribus_config['power_consumption']
         
         if not algorithm == "equihash" and not coin_name == "HUSH" and not coin_name == "CROP":
             # Convert KH/s to H/s
@@ -533,98 +543,89 @@ def load_config():
         return load_successful,config
 
 def load_algo_config(config,algo):
-    neoscrypt_config = {} 
-    equihash_config = {} 
-    xevan_config = {}
-    lyra2v2_config = {}
-    bitcore_config = {} 
-    skunk_config = {} 
-    nist5_config = {}
-    skein_config = {}
-    tribus_config = {}
     load_successful = False
     
     if algo == "neoscrypt":
         try:
-            neoscrypt_config = config[0][algo]
+            globalvars.neoscrypt_config = config[0][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,neoscrypt_config
+            return load_successful,algo,globalvars.neoscrypt_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,neoscrypt_config
+            return load_successful,algo,globalvars.neoscrypt_config
     if algo == "equihash":
         try:
-            equihash_config = config[1][algo]
+            globalvars.equihash_config = config[1][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,equihash_config
+            return load_successful,algo,globalvars.equihash_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,equihash_config
+            return load_successful,algo,globalvars.equihash_config
     if algo == "xevan":
         try:
-            xevan_config = config[2][algo]
+            globalvars.xevan_config = config[2][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,xevan_config
+            return load_successful,algo,globalvars.xevan_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,xevan_config
+            return load_successful,algo,globalvars.xevan_config
     if algo == "lyra2v2":
         try:
-            lyra2v2_config = config[3][algo]
+            globalvars.lyra2v2_config = config[3][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,lyra2v2_config
+            return load_successful,algo,globalvars.lyra2v2_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,lyra2v2_config
+            return load_successful,algo,globalvars.lyra2v2_config
     if algo == "bitcore":
         try:
-            bitcore_config = config[4][algo]
+            globalvars.bitcore_config = config[4][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,bitcore_config
+            return load_successful,algo,globalvars.bitcore_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,bitcore_config
+            return load_successful,algo,globalvars.bitcore_config
     if algo == "skunk":
         try:
-            skunk_config = config[5][algo]
+            globalvars.skunk_config = config[5][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,skunk_config
+            return load_successful,algo,globalvars.skunk_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,skunk_config
+            return load_successful,algo,globalvars.skunk_config
     if algo == "nist5":
         try:
-            nist5_config = config[6][algo]
+            globalvars.nist5_config = config[6][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,nist5_config
+            return load_successful,algo,globalvars.nist5_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,nist5_config
+            return load_successful,algo,globalvars.nist5_config
     if algo == "skein":
         try:
-            skein_config = config[7][algo]
+            globalvars.skein_config = config[7][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,skein_config
+            return load_successful,algo,globalvars.skein_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,skein_config
+            return load_successful,algo,globalvars.skein_config
     if algo == "tribus":
         try:
-            tribus_config = config[8][algo]
+            globalvars.tribus_config = config[8][algo]
             calclog.debug("Found " + algo + " in config file")
             load_successful = True
-            return load_successful,algo,tribus_config
+            return load_successful,algo,globalvars.tribus_config
         except (KeyError, IndexError) as err:
             calclog.info(algo + " not found in file")
-            return load_successful,algo,tribus_config
+            return load_successful,algo,globalvars.tribus_config
 
 if __name__ == "__main__":
     # Check if the person has a configuration file. If not, start benchmarking.
@@ -637,15 +638,6 @@ if __name__ == "__main__":
         coin_info = json.load(open('coininfo.json'))
 
         new_algo_config = {}
-        neoscrypt_config = {} 
-        equihash_config = {} 
-        xevan_config = {}
-        lyra2v2_config = {}
-        bitcore_config = {} 
-        skunk_config = {} 
-        nist5_config = {}
-        skein_config = {}
-        tribus_config = {}
         algorithm_list = []
 
         algorithm_list.append(coin_info[0]['algo'])
@@ -659,25 +651,25 @@ if __name__ == "__main__":
                 calclog.error("Some algorithms are missing from your config file, please run benchmark first...")
                 
             if algo == "neoscrypt":
-                neoscrypt_config = new_algo_config
+                globalvars.neoscrypt_config = new_algo_config
             elif algo == "equihash":
-                equihash_config = new_algo_config
+                globalvars.equihash_config = new_algo_config
             elif algo == "xevan":
-                xevan_config = new_algo_config
+                globalvars.xevan_config = new_algo_config
             elif algo == "lyra2v2":
-                lyra2v2_config = new_algo_config
+                globalvars.lyra2v2_config = new_algo_config
             elif algo == "bitcore":
-                bitcore_config = new_algo_config
+                globalvars.bitcore_config = new_algo_config
             elif algo == "skunk":
-                skunk_config = new_algo_config
+                globalvars.skunk_config = new_algo_config
             elif algo == "nist5":
-                nist5_config = new_algo_config
+                globalvars.nist5_config = new_algo_config
             elif algo == "skein":
-                skein_config = new_algo_config
+                globalvars.skein_config = new_algo_config
             elif algo == "tribus":
-                tribus_config = new_algo_config
+                globalvars.tribus_config = new_algo_config
 
-        most_profitable_coins = calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,bitcore_config,skunk_config,nist5_config,skein_config,tribus_config)
+        most_profitable_coins = calc(coin_info,globalvars.neoscrypt_config,globalvars.equihash_config,globalvars.xevan_config,globalvars.lyra2v2_config,globalvars.bitcore_config,globalvars.skunk_config,globalvars.nist5_config,globalvars.skein_config,globalvars.tribus_config)
 
         print_coins(most_profitable_coins)
 
