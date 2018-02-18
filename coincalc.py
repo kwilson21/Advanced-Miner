@@ -5,11 +5,8 @@ import coin
 import time
 import json
 import os
-
-import newpool
 import multiprocessing
 import concurrent.futures
-
 from datetime import datetime
 from tabulate import tabulate
 
@@ -23,7 +20,6 @@ class globalvars():
     cb_prices = ''
     btc_price = ''
     coins = {}
-
 
 def load_difficulty(url,name):
     new_num = ''
