@@ -136,7 +136,7 @@ def load_ts_prices(ts_prices):
         try:
             ts_prices = requests.get('https://tradesatoshi.com/api/public/getmarketsummaries').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
+        except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Trade Satoshi api, trying again in 30 seconds...")
             time.sleep(30)
@@ -149,7 +149,7 @@ def load_sx_prices(sx_prices):
         try:
             sx_prices = requests.get('https://www.southxchange.com/api/prices').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
+        except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Southxchange api, trying again in 30 seconds...")
             time.sleep(30)
@@ -162,7 +162,7 @@ def load_ct_prices(ct_prices):
         try:
             ct_prices = requests.get('https://www.cryptopia.co.nz/api/GetMarkets').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
+        except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Cryptopia api, trying again in 30 seconds...")
             time.sleep(30)
@@ -175,7 +175,7 @@ def load_cb_prices(cb_prices):
         try:
             cb_prices = requests.get('https://api.crypto-bridge.org/api/v1/ticker').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
+        except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Crypto-bridge api, trying again in 30 seconds...")
             time.sleep(30)
@@ -188,7 +188,7 @@ def load_btc_price(btc_price):
         try:
             btc_price = requests.get('https://api.coinbase.com/v2/exchange-rates?currency=BTC').json()
             prices_loaded = True
-        except (requests.exceptions.HTTPError, ValueError, ConnectionError) as err:
+        except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError, ValueError, ConnectionError) as err:
             prices_loaded = False
             calclog.error("Error loading prices from Coinbase api, trying again in 30 seconds...")
             time.sleep(30)
@@ -296,7 +296,7 @@ def get_exchange_prices():
 
     all_prices = [globalvars.se_prices,globalvars.ts_prices,globalvars.sx_prices,globalvars.ct_prices,globalvars.cb_prices,globalvars.btc_price]
 
-    pool = multiprocessing.pool.ThreadPool()
+    pool = multiprocessing.Pool()
 
     new_prices = []
 
