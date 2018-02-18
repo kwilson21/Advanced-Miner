@@ -49,7 +49,7 @@ def load_difficulty(url,name):
                 difficulty = float(new_num)
                 difficulty_loaded = True
             except (requests.exceptions.HTTPError, ValueError) as err:
-                calclog.error("Error loading " + name + " difficuly. Retrying...")
+                #calclog.error("Error loading " + name + " difficuly. Retrying...")
                 i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
@@ -71,7 +71,7 @@ def load_difficulty(url,name):
                 difficulty = float(temp["difficulty"])
                 difficulty_loaded = True
             except (requests.exceptions.HTTPError, ValueError) as err:
-                calclog.error("Error loading " + name + " difficuly. Retrying...")
+                #calclog.error("Error loading " + name + " difficuly. Retrying...")
                 i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
@@ -92,7 +92,7 @@ def load_difficulty(url,name):
                 difficulty = float(temp["proof-of-work"])
                 difficulty_loaded = True
             except (requests.exceptions.HTTPError, ValueError) as err:
-                calclog.error("Error loading " + name + " difficuly. Retrying...")
+                #calclog.error("Error loading " + name + " difficuly. Retrying...")
                 i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
@@ -112,7 +112,7 @@ def load_difficulty(url,name):
                 difficulty  = float(requests.get(url).text)
                 difficulty_loaded = True
             except (requests.exceptions.HTTPError, ValueError) as err:
-                calclog.error("Error loading " + name + " difficuly. Retrying...")
+                #calclog.error("Error loading " + name + " difficuly. Retrying...")
                 i+=1
             except:
                 calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
@@ -464,6 +464,7 @@ def calc_coins(coin_info):
     coin_obj = []
     for i,key in enumerate(coin_info):
         coin_obj.append(pool.map(calc_coin, (key,)))
+    for i,key in enumerate(coin_info):
         all_coins[key['coin']] = next(coin_obj[i])
 
     return all_coins
