@@ -521,5 +521,20 @@
         "Crypto-Bridge":  "c3Uq2EbBsD6fKfwHBuN9VY1e7DAZ3qEXoq"
     },
     "algo":  "neoscrypt"
-    }
+    },
+    {  
+    "coin":  "CTF", 
+    "api_url":  "http://explorer.coin2fly.com/api/getdifficulty", 
+    "block_reward":  7.5, 
+    "pool_url":  "stratum+tcp://eu.cryptoally.net",
+    "port":  "4233", 
+    "exchange":  {
+        "Crypto-Bridge": "NA",  
+        "Stocks.Exchange": "GfSGvwxUrv3EYAvPoTubqX5TkmuBBLFmdM",
+        "Cryptopia":  "NA",
+        "Southxchange":  "NA",
+        "Trade Satoshi":  "NA"
+        },
+    "algo":  "neoscrypt"
+       }
 ]

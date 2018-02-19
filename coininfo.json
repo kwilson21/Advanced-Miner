@@ -46,7 +46,7 @@
  {  
      "coin":  "GOA", 
      "api_url":  "http://goa.altexplorer.co/api/getdifficulty", 
-     "block_reward":  10.0, 
+     "block_reward":  5.0, 
      "pool_url":  "stratum+tcp://pool.bsod.pw",
      "port":  "1997", 
      "exchange":  {
