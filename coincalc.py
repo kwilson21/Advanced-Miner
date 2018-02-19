@@ -279,19 +279,19 @@ def add_exchange_prices(coin_name):
     new_prices = []
 
     for i,f in enumerate(funcs):
-        new_prices.append(pool.apply_async(f, (all_prices[i],coin_name)))
+        new_prices.append(pool.apply(f, (all_prices[i],coin_name)))
 
     for i,price in enumerate(new_prices):
         if i == 0:
-            buy_price_se = price.get()
+            buy_price_se = price
         elif i == 1:
-            buy_price_ts = price.get()
+            buy_price_ts = price
         elif i == 2:
-            buy_price_sx = price.get()
+            buy_price_sx = price
         elif i == 3:
-            buy_price_ct = price.get()
+            buy_price_ct = price
         elif i == 4:
-            buy_price_cb = price.get()
+            buy_price_cb = price
     return buy_price_se,buy_price_ts,buy_price_sx,buy_price_ct,buy_price_cb
 
 def get_exchange_prices():
@@ -439,7 +439,7 @@ def calc_coin(key):
         elif coin_name == "CROP":
             # Convert KH/s to H/s
             hashrate *= 1000
-            coins_mined = (hashrate/(difficulty*(2**25))*86400*block_reward)
+            coins_mined = (hashrate/(difficulty*(2**23))*86400*block_reward)
         elif coin_name == "HUSH":
             coins_mined = (hashrate/(difficulty*(2.001313))*86400*block_reward)
         else:
@@ -470,7 +470,6 @@ def calc_coins(coin_info):
     return all_coins
 
 def calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,bitcore_config,skunk_config,nist5_config,skein_config,tribus_config):
-    
     se_prices = ''
     ts_prices = ''
     sx_prices = ''

@@ -418,6 +418,21 @@
      "algo":  "equihash"
     },
     {
+     "coin":  "BTCZ", 
+     "api_url":  "https://www.crypto-coinz.net/coin-info/?7-BitcoinZ-BTCZ-Equihash-calculator/", 
+     "block_reward":  12500, 
+     "pool_url":  "mine-us.miningspeed.com",
+     "port":  "3072", 
+     "exchange":  {
+         "Crypto-Bridge": "NA",  
+         "Stocks.Exchange":  "t1gR2UdgGVHmpUd4eDhCcqLYUygkxRu5BSP",
+        "Trade Satoshi": "t1Vqet1AVyf9MfC5X9nvZEuFehN4wZQ3bSy",
+        "Southxchange":"NA",
+        "Cryptopia":"NA"
+    },
+     "algo":  "equihash"
+    },
+    {
     "coin":  "LIZ", 
     "api_url":  "http://lizus.lchain.cc/api/getdifficulty", 
     "block_reward":  12.5, 

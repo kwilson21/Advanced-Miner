@@ -403,6 +403,7 @@ def main():
 
         config_load_successful,config = coincalc.load_config()
 
+    j=0
     # Begin loading the hashrates for each algorithm.
     # If a hashrate is not found for the algorithm, prompt the user to benchmark the algorithm.
     for i,algo in enumerate(algorithm_list):
@@ -410,9 +411,10 @@ def main():
         algo_config_load_successful,algo,new_algo_config = coincalc.load_algo_config(config,algo)
         if not algo_config_load_successful:
             minerlog.info("Some algorithms are missing from your config file, now benchmarking those algorithms...")
-            if i == 0:
+            if j == 0:
                 # Only prompt the user to enter their electricity and desired benchmark time once.
                 electricity_costs,bench_time = get_info()
+                j+=1
             algos_finished = bench_algos(algo,electricity_costs,bench_time)
             algo_config_load_successful,algo,new_algo_config = coincalc.load_algo_config(config,algo)
         if algo == "neoscrypt":
@@ -481,8 +483,8 @@ def main():
             minerlog.debug("Prompting the user to mine a different coin...")
             response = input("Would you like to mine a different coin instead?: ")
 
-            while not re.match("^[A-Za-z]*$", response):
-                minerlog.info("ERROR: Please only enter letters!")
+            while not re.match("^[A-Za-z]*$", response) or not response.lower() in ("yes", "ye", "y","","no","n"):
+                minerlog.info("ERROR: Please answer yes or no")
                 minerlog.debug("User entered bad input, prompting again...")
                 response = input("Would you like to mine a different coin instead?: ")
 
