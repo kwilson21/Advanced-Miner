@@ -5,6 +5,7 @@ import coin
 import time
 import json
 import os
+import sys
 import multiprocessing
 import concurrent.futures
 from datetime import datetime
@@ -649,6 +650,7 @@ if __name__ == "__main__":
             algo_config_load_successful,algo,new_algo_config = load_algo_config(config,algo)
             if not algo_config_load_successful:
                 calclog.error("Some algorithms are missing from your config file, please run benchmark first...")
+                sys.exit()
                 
             if algo == "neoscrypt":
                 globalvars.neoscrypt_config = new_algo_config
