@@ -18,7 +18,7 @@ pip install requests
 pip install tabulate
 pip install wget
 ```
-Once you have your depencies set up, you will need to configure your coininfo.json file. Here you will need to set up your wallet address for each exchange. Look for the "exchange" field and update each exchange listed with your wallet. I currently mine almost all of my coins directly to the exchange. If you have a cold wallet set up for any of the coins, set each exchange wallet address to your cold wallet.
+Once you have your depencies set up, you will need to configure your coininfo.json file. Here you will need to set up your wallet address for each exchange. Look for the "exchange" field and update each exchange listed with your wallet. I currently mine almost all of my coins directly to the exchange. If you have a cold wallet set up for any of the coins, change each exchange wallet address to your cold wallet address.
 
 Once your coininfo file is set up simply run Start-Miner.bat.
 The miner will prompt you to enter your electricity costs in kW/h and the amount of time you would like to spend benchmarking each algorithm in minutes.
