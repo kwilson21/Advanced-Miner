@@ -12,7 +12,7 @@ import time
 import json
 import random
 import subprocess
-import argparse
+#import argparse
 from datetime import datetime
 from threading import Thread, Timer, Event
 
@@ -403,9 +403,20 @@ def main():
 
         minerlog.info("Your most profitable coin is: " + most_profitable_coin_name)
 
-        def finish():
-            minerlog.debug("Sleeping for " + str(globalvars.interval) + " seconds.")
-            time.sleep(globalvars.interval)
+        def finish(coin_name,coin_info):
+            for key in coin_info:
+                    if key['coin'] == coin_name:
+                        coin_algo = key['algorithm']
+            for i in range(int(globalvars.interval/5)):
+                # Every minute, check if the miner is running and if it isn't start the miner again.
+                miner_running = check_if_miner_is_running(coin_algo)
+                if not miner_running:
+                    minerlog.info("Miner is not open, restarting...")
+                    start_miner(coin_name,coin_info)
+                time.sleep(5)
+
+            #minerlog.debug("Sleeping for " + str(globalvars.interval) + " seconds.")
+            #time.sleep(globalvars.interval)
 
         def process_input(timer):
             global answered
@@ -423,9 +434,10 @@ def main():
                     answered = True
                     print()
                     minerlog.info("Switching miner to most profitable coin...")
-                    start_miner(most_profitable_coin_name,most_profitable_coins)
+                    coin_name = most_profitable_coin_name
+                    start_miner(coin_name,most_profitable_coins)
                     timer.cancel()
-                    finish()
+                    finish(coin_name,most_profitable_coins)
                 elif answer.lower() in ("no", "n"):
                     answered = True
                     timer.cancel()
@@ -463,7 +475,7 @@ def main():
                         else:
                             key_found = False
                 start_miner(coin_name,coin_info)
-                finish()
+                finish(coin_name,coin_info)
             else:
                 # If the user does not want to mine a coin, exit the program.
                 sys.exit()
@@ -484,24 +496,28 @@ def main():
         if not answered:
             print()
             minerlog.info("Switching miner to most profitable coin...")
-            start_miner(most_profitable_coin_name,most_profitable_coins)
+            coin_name = most_profitable_coin_name
+            start_miner(coin_name,most_profitable_coins)
             timer.cancel()
-            finish()
+            finish(coin_name,most_profitable_coins)
         else:
             manually_mine(most_profitable_coins)
+            answered = True
 
 if __name__ == "__main__":
+    """
     argparser = argparse.ArgumentParser()
     argparser.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
     argparser.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
 
     results = argparser.parse_args()
-
+    """
     class globalvars:
         if len(sys.argv) == 1:
             interval = 28800    #8hrs
             donate = 1
 
-        interval = results.interval
-        donate = results.donate
+        #interval = results.interval
+        #donate = results.donate
+        
     main()

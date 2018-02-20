@@ -1,1 +1,1 @@
-call python miner.py --interval 8 --donate 0
+call python miner.py
