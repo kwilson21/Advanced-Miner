@@ -3,7 +3,6 @@ import coin
 import coincalc
 import PyCCMiner
 import mzip
-
 import os
 import logging
 import sys
@@ -13,6 +12,7 @@ import time
 import json
 import random
 import subprocess
+import multiprocessing
 from datetime import datetime
 from threading import Thread, Timer, Event
 
@@ -376,39 +376,18 @@ def main():
     if not config_load_successful:
         minerlog.info("Config file not found. Configuring new settings...")
 
-        electricity_costs,bench_time = get_info()    
-
-        # Benchmark each algorithm
-        neoscrypt_finished, equihash_finished, xevan_finished, lyra2v2_finished, bitcore_finished, skunk_finished, nist5_finished, skein_finished, tribus_finished = (False,)*9
-
-        for key in coin_info:
-            if key['algo'] == "neoscrypt" and not neoscrypt_finished:
-                neoscrypt_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "equihash" and not equihash_finished:
-                equihash_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "xevan" and not xevan_finished:
-                xevan_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "lyra2v2" and not lyra2v2_finished:
-                lyra2v2_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "bitcore" and not bitcore_finished:
-                bitcore_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "skunk" and not skunk_finished:
-                skunk_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "nist5" and not nist5_finished:
-                nist5_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "skein" and not skein_finished:
-                skein_finished = bench_algos(key['algo'],electricity_costs,bench_time)
-            elif key['algo'] == "tribus" and not tribus_finished:
-                tribus_finished = bench_algos(key['algo'],electricity_costs,bench_time)
+        electricity_costs,bench_time = get_info() 
+   
+        for algo in algorithm_list:
+            algos_benched = bench_algos(algo,electricity_costs,bench_time)
 
         config_load_successful,config = coincalc.load_config()
+    else:
+        minerlog.info("Config file loaded successfully.")
 
     j=0
-    # Begin loading the hashrates for each algorithm.
-    # If a hashrate is not found for the algorithm, prompt the user to benchmark the algorithm.
     for i,algo in enumerate(algorithm_list):
-        new_algo_config = {}
-        algo_config_load_successful,algo,new_algo_config = coincalc.load_algo_config(config,algo)
+        algo_config_load_successful = coincalc.load_algo_config(config,algo)
         if not algo_config_load_successful:
             minerlog.info("Some algorithms are missing from your config file, now benchmarking those algorithms...")
             if j == 0:
@@ -416,29 +395,12 @@ def main():
                 electricity_costs,bench_time = get_info()
                 j+=1
             algos_finished = bench_algos(algo,electricity_costs,bench_time)
-            algo_config_load_successful,algo,new_algo_config = coincalc.load_algo_config(config,algo)
-        if algo == "neoscrypt":
-            neoscrypt_config = new_algo_config
-        elif algo == "equihash":
-            equihash_config = new_algo_config
-        elif algo == "xevan":
-            xevan_config = new_algo_config
-        elif algo == "lyra2v2":
-            lyra2v2_config = new_algo_config
-        elif algo == "bitcore":
-            bitcore_config = new_algo_config
-        elif algo == "skunk":
-            skunk_config = new_algo_config
-        elif algo == "nist5":
-            nist5_config = new_algo_config
-        elif algo == "skein":
-            skein_config = new_algo_config
-        elif algo == "tribus":
-            tribus_config = new_algo_config
+            algo_config_load_successful = coincalc.load_algo_config(config,algo)
+    del j
 
     while True:
         # Start the calculator
-        most_profitable_coins = coincalc.calc(coin_info,neoscrypt_config,equihash_config,xevan_config,lyra2v2_config,bitcore_config,skunk_config,nist5_config,skein_config,tribus_config)
+        most_profitable_coins = coincalc.calc(coin_info)
 
         minerlog.debug(most_profitable_coins)
 
