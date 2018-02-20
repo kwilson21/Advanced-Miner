@@ -13,10 +13,13 @@ import json
 import random
 import subprocess
 import multiprocessing
+import argparse
 from datetime import datetime
 from threading import Thread, Timer, Event
 
 def main():
+
+
     # Declare all variables
     global answered
     answered = False
@@ -24,15 +27,6 @@ def main():
     electricity_costs = 0.0
     power_consumption = 0.0
 
-    neoscrypt_config = {} 
-    equihash_config = {} 
-    xevan_config = {}
-    lyra2v2_config = {}
-    bitcore_config = {} 
-    skunk_config = {} 
-    nist5_config = {}
-    skein_config = {}
-    tribus_config = {}
     algorithm_list = []
     exchanges = []
 
@@ -413,9 +407,8 @@ def main():
         minerlog.info("Your most profitable coin is: " + most_profitable_coin_name)
 
         def finish():
-            interval = 28800
-            minerlog.debug("Sleeping for " + str(interval) + " seconds.")
-            time.sleep(interval)
+            minerlog.debug("Sleeping for " + str(globalvars.interval) + " seconds.")
+            time.sleep(globalvars.interval)
 
         def process_input(timer):
             global answered
@@ -501,4 +494,17 @@ def main():
             manually_mine(most_profitable_coins)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
+    parser.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
+
+    results = parser.parse_args()
+
+    class globalvars:
+        if len(sys.argv) == 1:
+            interval = 8
+            donate = 1
+
+        interval = results.interval
+        donate = results.donate
     main()

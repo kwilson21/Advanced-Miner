@@ -287,13 +287,6 @@ def add_exchange_prices(coin_name):
     return buy_price_se,buy_price_ts,buy_price_sx,buy_price_ct,buy_price_cb
 
 def get_exchange_prices():
-    se_prices = ''
-    ts_prices = ''
-    sx_prices = ''
-    ct_prices = ''
-    cb_prices = ''
-    btc_price = ''
-
     funcs = [load_se_prices,load_ts_prices,load_sx_prices,load_ct_prices,load_cb_prices,load_btc_price]
 
     all_prices = [globalvars.se_prices,globalvars.ts_prices,globalvars.sx_prices,globalvars.ct_prices,globalvars.cb_prices,globalvars.btc_price]
@@ -423,24 +416,18 @@ def calc_coin(key):
     return coin_list
 
 def calc_coins(coin_info):
-    pool = concurrent.futures.ThreadPoolExecutor()
+    pool = multiprocessing.pool.ThreadPool()
     all_coins = {}
     coin_obj = []
 
     coin_obj = pool.map(calc_coin, coin_info)
 
     for i,key in enumerate(coin_obj):
-        all_coins[coin_info[i]['coin']] = next(coin_obj)
+        all_coins[coin_info[i]['coin']] = key
 
     return all_coins
 
 def calc(coin_info):
-    se_prices = ''
-    ts_prices = ''
-    sx_prices = ''
-    ct_prices = ''
-    cb_prices = ''
-    btc_price = ''
     most_profitable_coin_list = []
 
     # Begin fetching the price of each coin
