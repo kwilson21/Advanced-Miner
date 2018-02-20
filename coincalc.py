@@ -6,8 +6,8 @@ import time
 import json
 import os
 import sys
-import multiprocessing
-import concurrent.futures
+from multiprocessing import Pool
+from multiprocessing.pool import ThreadPool
 from datetime import datetime
 from tabulate import tabulate
 
@@ -266,7 +266,7 @@ def add_exchange_prices(coin_name):
 
     all_prices = [globalvars.se_prices,globalvars.ts_prices,globalvars.sx_prices,globalvars.ct_prices,globalvars.cb_prices]
 
-    pool = multiprocessing.pool.ThreadPool()
+    pool = ThreadPool()
 
     new_prices = []
 
@@ -291,7 +291,7 @@ def get_exchange_prices():
 
     all_prices = [globalvars.se_prices,globalvars.ts_prices,globalvars.sx_prices,globalvars.ct_prices,globalvars.cb_prices,globalvars.btc_price]
 
-    pool = multiprocessing.Pool()
+    pool = Pool()
 
     new_prices = []
 
@@ -416,7 +416,7 @@ def calc_coin(key):
     return coin_list
 
 def calc_coins(coin_info):
-    pool = multiprocessing.pool.ThreadPool()
+    pool = ThreadPool()
     all_coins = {}
     coin_obj = []
 

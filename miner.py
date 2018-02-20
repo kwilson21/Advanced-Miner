@@ -12,14 +12,11 @@ import time
 import json
 import random
 import subprocess
-import multiprocessing
 import argparse
 from datetime import datetime
 from threading import Thread, Timer, Event
 
 def main():
-
-
     # Declare all variables
     global answered
     answered = False
@@ -494,15 +491,15 @@ def main():
             manually_mine(most_profitable_coins)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
-    parser.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
+    argparser.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
 
-    results = parser.parse_args()
+    results = argparser.parse_args()
 
     class globalvars:
         if len(sys.argv) == 1:
-            interval = 8
+            interval = 28800    #8hrs
             donate = 1
 
         interval = results.interval
