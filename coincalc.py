@@ -6,7 +6,6 @@ import time
 import json
 import os
 import sys
-from multiprocessing import Pool
 from multiprocessing.pool import ThreadPool
 from datetime import datetime
 from tabulate import tabulate
@@ -291,7 +290,7 @@ def get_exchange_prices():
 
     all_prices = [globalvars.se_prices,globalvars.ts_prices,globalvars.sx_prices,globalvars.ct_prices,globalvars.cb_prices,globalvars.btc_price]
 
-    pool = Pool()
+    pool = ThreadPool()
 
     new_prices = []
 
@@ -406,7 +405,7 @@ def calc_coin(key):
 
         calclog.debug("Coin: " + coin_name + " Hashrate: " + str(hashrate) + " Difficulty: " + str(difficulty) + " Price: " + str(coin_price) + " Block reward: " + str(block_reward) + " Reward: " + str(coins_mined) + " Revenue: " + str(coin_profit))
 
-        globalvars.coins[new_coin] = coin_profit
+        globalvars.coins[new_coin.getCoinname()] = coin_profit
         calclog.debug("Currently processing" + coin_name)
         wallet_address = key['exchange'][new_coin.getExchange()]
         daily_electricity_costs = ((power_consumption/1000)*24)*float(electricity_costs)

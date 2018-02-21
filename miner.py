@@ -1,5 +1,4 @@
 import calclog
-import coin
 import coincalc
 import PyCCMiner
 import mzip
@@ -12,7 +11,6 @@ import time
 import json
 import random
 import subprocess
-#import argparse
 from datetime import datetime
 from threading import Thread, Timer, Event
 
@@ -502,15 +500,15 @@ def main():
             finish(coin_name,most_profitable_coins)
         else:
             manually_mine(most_profitable_coins)
-            answered = True
 
 if __name__ == "__main__":
+    #import argparse
     """
-    argparser = argparse.ArgumentParser()
-    argparser.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
-    argparser.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
+    p = argparse.ArgumentParser()
+    p.add_argument('-i','--interval', action="store", type=int, dest='interval',help='Amount of time between each switch in seconds.')
+    p.add_argument('-d','--donate', action="store", type=int,dest='donate',help='Amount of time to donate your mining rig in percentage per hour.')
 
-    results = argparser.parse_args()
+    results = p.parse_args()
     """
     class globalvars:
         if len(sys.argv) == 1:

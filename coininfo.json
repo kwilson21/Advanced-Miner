@@ -451,8 +451,8 @@
     "coin":  "ZEL", 
     "api_url":  "https://www.crypto-coinz.net/coin-info/?58-ZelCash-ZEL-Equihash-calculator/", 
     "block_reward":  150.0, 
-    "pool_url":  "mine-us.miningspeed.com",
-    "port":  "2062", 
+    "pool_url":  "zel-us.coinblockers.com",
+    "port":  "4446", 
     "exchange":  {
         "Crypto-Bridge": "NA",  
         "Stocks.Exchange":  "t1ekDo2pKFCNu2uJR8obG4kC46A8utxnDyc",
@@ -494,7 +494,7 @@
     },
     {
     "coin":  "CROP", 
-    "api_url":  "http://93.184.160.140:8080/api/getdifficulty", 
+    "api_url":  "http://cropcoin.gos.cx/api/getdifficulty", 
     "block_reward":  15.0, 
     "pool_url":  "stratum+tcp://tiny-pool.com",
     "port":  "4233", 

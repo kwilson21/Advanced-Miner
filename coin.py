@@ -1,7 +1,3 @@
-import requests
-from pprint import pprint
-from collections import OrderedDict
-
 class Coin:
     def __init__(self,coin_name,coin_price,btc_price,exchange,block_reward,difficulty,algorithm):
         self.coin_name = coin_name
