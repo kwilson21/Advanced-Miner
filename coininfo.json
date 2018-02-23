@@ -286,8 +286,8 @@
      "coin":  "STONE", 
      "api_url":  "http://stonecrypto.org/api/getdifficulty", 
      "block_reward":  6.0, 
-     "pool_url":  "stratum+tcp://arcpool.com",
-     "port":  "31011", 
+     "pool_url":  "stratum+tcp://pool.bsod.pw",
+     "port":  "2031", 
      "exchange":  {
          "Crypto-Bridge": "ShzusEBrwTxviETJosjK1uVBZh7CJsxf8J",  
          "Stocks.Exchange":  "Si86UUXz6q6Qh4xkK93DzNunFrtAA1WDXH",
@@ -344,7 +344,7 @@
     },
     {
     "coin":  "ZEC", 
-     "api_url":  "https://www.crypto-coinz.net/coin-info/?8-ZCash-ZEC-Equihash-calculator/", 
+     "api_url":  "https://api.zcha.in/v2/mainnet/network", 
      "block_reward":  10.0, 
      "pool_url":  "zec-us-east1.nanopool.org",
      "port":  "6666", 
@@ -491,20 +491,4 @@
         "Crypto-Bridge":  "EarctuftiaC5YqsJshnmSUecN8Chz18xHE"
     },
     "algo":  "neoscrypt"
-    },
-    {
-    "coin":  "CROP", 
-    "api_url":  "http://cropcoin.gos.cx/api/getdifficulty", 
-    "block_reward":  15.0, 
-    "pool_url":  "stratum+tcp://tiny-pool.com",
-    "port":  "4233", 
-    "exchange":  { 
-        "Stocks.Exchange":  "NA",
-        "Cryptopia":  "NA",
-        "Southxchange":"NA",
-        "Trade Satoshi":"NA",
-        "Crypto-Bridge":  "c3Uq2EbBsD6fKfwHBuN9VY1e7DAZ3qEXoq"
-    },
-    "algo":  "neoscrypt"
-    }
-]
+}]

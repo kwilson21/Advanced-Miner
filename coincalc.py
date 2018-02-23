@@ -94,6 +94,27 @@ def load_difficulty(url,name):
                     calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
                     difficulty = 0
                     return difficulty, difficulty_loaded
+    
+    elif "zcha" in url:
+        i=0
+        difficulty_loaded = False
+        while not difficulty_loaded:
+            try:
+                temp = requests.get(url).json()
+                difficulty = float(temp["difficulty"])
+                difficulty_loaded = True
+            except (requests.exceptions.HTTPError, ValueError) as err:
+                #calclog.error("Error loading " + name + " difficuly. Retrying...")
+                i+=1
+            except:
+                calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                difficulty = 0
+                return difficulty, difficulty_loaded
+            finally:
+                if i == 3:
+                    calclog.error("Could not load the difficulty for " + name + ". Skipping coin")
+                    difficulty = 0
+                    return difficulty, difficulty_loaded
 
     else:
         i=0
@@ -283,6 +304,9 @@ def add_exchange_prices(coin_name):
             buy_price_ct = price
         elif i == 4:
             buy_price_cb = price
+
+    pool.close()
+    pool.join()
     return buy_price_se,buy_price_ts,buy_price_sx,buy_price_ct,buy_price_cb
 
 def get_exchange_prices():
@@ -310,6 +334,9 @@ def get_exchange_prices():
             globalvars.cb_prices = price
         elif i == 5:
             globalvars.btc_price = price
+    
+    pool.close()
+    pool.join()
 
 def calc_coin(key):
     buy_price_se = 0.0
@@ -423,6 +450,9 @@ def calc_coins(coin_info):
 
     for i,key in enumerate(coin_obj):
         all_coins[coin_info[i]['coin']] = key
+
+    pool.close()
+    pool.join()
 
     return all_coins
 

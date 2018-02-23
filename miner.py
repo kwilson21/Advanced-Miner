@@ -16,8 +16,6 @@ from threading import Thread, Timer, Event
 
 def main():
     # Declare all variables
-    global answered
-    answered = False
     hashrate = 0.0
     electricity_costs = 0.0
     power_consumption = 0.0
@@ -57,32 +55,24 @@ def main():
         else:
             return False
 
-    def kill_miner(algorithm):
+    def kill_miner():
         # Depending on what the algorithm is, kill that specific miner process.
-        if algorithm == "neoscrypt":
+        if isrunning('hsrminer_neoscrypt_fork'):
             os.system('taskkill /f /im hsrminer_neoscrypt_fork.exe /t')
-        elif algorithm == "equihash":
+        elif isrunning('Zminer'):
             os.system('taskkill /f /im Zminer.exe /t')
-        elif algorithm == "xevan":
+        elif isrunning('ccminer_x86'):
             os.system('taskkill /f /im ccminer_x86.exe /t')
-        elif algorithm in ("lyra2v2","nist5","skein"):
+        elif isrunning('ccminer-alexis'):
             os.system('taskkill /f /im ccminer-alexis.exe /t')
-        elif algorithm in ("bitcore","skunk","tribus"):
+        elif isrunning('ccminer'):
             os.system('taskkill /f /im ccminer.exe /t')
 
-    def check_if_miner_is_running(algorithm):
-        # Check if the miner is running and return a boolean state.
-        if algorithm == "neoscrypt":
-            miner_running = isrunning('hsrminer_neoscrypt_fork')
-        elif algorithm == "equihash":
-            miner_running = isrunning('Zminer')
-        elif algorithm == "xevan":
-            miner_running = isrunning('ccminer_x86')
-        elif algorithm in ("lyra2v2","nist5","skein"):
-            miner_running = isrunning('ccminer-alexis')
-        elif algorithm in ("bitcore","skunk","tribus"):
-            miner_running = isrunning('ccminer')
-        return miner_running
+    def miner_running():
+        if isrunning('hsrminer_neoscrypt_fork') or isrunning('Zminer') or isrunning('ccminer_x86') or isrunning('ccminer-alexis') or isrunning('ccminer'):
+            return True
+        else:
+            return False
 
     def start_miner(coin_name,coin_info):
         FILEPATH = os.path.dirname(os.path.realpath(__file__))
@@ -121,9 +111,7 @@ def main():
                     pool_url = "Tiny-Pool"
                 
                 # Check if a miner is running, if it is, close it before starting another instance.
-                miner_running = check_if_miner_is_running(key['algorithm'])
-                if miner_running:
-                    kill_miner(key['algorithm'])
+                kill_miner()
 
                 minerlog.debug("Coin pool: " + pool_url.lower() + " Coin algo: " + key['algorithm'])
 
@@ -279,7 +267,7 @@ def main():
 
         for i in range(int(bench_time) * 2):
             # Every minute, check if the miner is running and if it isn't start the miner again.
-            miner_running = check_if_miner_is_running(algorithm)
+            kill_miner()
             if not miner_running:
                 minerlog.info("Miner is not open, restarting...")
                 open_miner()
@@ -321,7 +309,7 @@ def main():
 
         def write_config():
             config = []
-            
+
             try:
                 config = json.load(open('config.json'))
             except:
@@ -386,6 +374,10 @@ def main():
             algos_finished = bench_algos(algo,electricity_costs,bench_time)
             algo_config_load_successful = coincalc.load_algo_config(config,algo)
     del j
+    del hsr
+    del hashrate
+    del electricity_costs
+    del power_consumption 
 
     while True:
         # Start the calculator
@@ -407,8 +399,8 @@ def main():
                         coin_algo = key['algorithm']
             for i in range(int(globalvars.interval/5)):
                 # Every minute, check if the miner is running and if it isn't start the miner again.
-                miner_running = check_if_miner_is_running(coin_algo)
-                if not miner_running:
+                miner_is_running = miner_running()
+                if not miner_is_running:
                     minerlog.info("Miner is not open, restarting...")
                     start_miner(coin_name,coin_info)
                 time.sleep(5)
@@ -417,10 +409,8 @@ def main():
             #time.sleep(globalvars.interval)
 
         def process_input(timer):
-            global answered
-            global answer
             minerlog.debug("Prompting user to switch miners...")
-            if not answered:
+            if not globalvars.answered:
                 answer = input("Do you want to mine the current most profitable coin? (WARNING: Miner will auto switch in 15 seconds if you do not respond): ")
 
                 while not re.match("^[A-Za-z]*$", answer):
@@ -429,7 +419,7 @@ def main():
                     answer = input("Do you want to mine the current most profitable coin? (WARNING: Miner will auto switch in 15 seconds if you do not respond): ")
             
                 if answer.lower() in ("yes", "ye", "y",""):
-                    answered = True
+                    globalvars.answered = True
                     print()
                     minerlog.info("Switching miner to most profitable coin...")
                     coin_name = most_profitable_coin_name
@@ -437,7 +427,7 @@ def main():
                     timer.cancel()
                     finish(coin_name,most_profitable_coins)
                 elif answer.lower() in ("no", "n"):
-                    answered = True
+                    globalvars.answered = True
                     timer.cancel()
                     minerlog.info("You selected no, closing timer thread...")
 
@@ -491,7 +481,7 @@ def main():
             timer.join()
 
         # If the user does not respond within 15 seconds, start mining. If they do respond but say no, prompt them to mine another coin instead.
-        if not answered:
+        if not globalvars.answered:
             print()
             minerlog.info("Switching miner to most profitable coin...")
             coin_name = most_profitable_coin_name
@@ -500,6 +490,14 @@ def main():
             finish(coin_name,most_profitable_coins)
         else:
             manually_mine(most_profitable_coins)
+
+        # Tidy up things a bit before sleeping the main thread.
+        del timer
+        del worker
+        del delay
+        del finished
+        del most_profitable_coins
+        del most_profitable_coin_name
 
 if __name__ == "__main__":
     #import argparse
@@ -514,6 +512,7 @@ if __name__ == "__main__":
         if len(sys.argv) == 1:
             interval = 28800    #8hrs
             donate = 1
+            answered = False
 
         #interval = results.interval
         #donate = results.donate
