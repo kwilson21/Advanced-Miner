@@ -380,6 +380,8 @@ def main():
     del power_consumption 
 
     while True:
+        globalvars.answered = False
+
         # Start the calculator
         most_profitable_coins = coincalc.calc(coin_info)
 
@@ -510,7 +512,7 @@ if __name__ == "__main__":
     """
     class globalvars:
         if len(sys.argv) == 1:
-            interval = 28800    #8hrs
+            interval = 86400    #8hrs
             donate = 1
             answered = False
 

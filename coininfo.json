@@ -210,7 +210,7 @@
     },
  {  
      "coin":  "TUN", 
-     "api_url":  "http://173.249.24.88:3001/api/getdifficulty", 
+     "api_url":  "http://explorer.tunecrypto.io/api/getdifficulty", 
      "block_reward":  5.0, 
      "pool_url":  "stratum+tcp://173.249.24.88",
      "port":  "4233", 
