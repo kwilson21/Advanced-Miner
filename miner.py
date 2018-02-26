@@ -400,7 +400,7 @@ def main():
                     if key['coin'] == coin_name:
                         coin_algo = key['algorithm']
             for i in range(int(globalvars.interval/5)):
-                # Every minute, check if the miner is running and if it isn't start the miner again.
+                # Every 5 seconds, check if the miner is running and if it isn't start the miner again.
                 miner_is_running = miner_running()
                 if not miner_is_running:
                     minerlog.info("Miner is not open, restarting...")
@@ -492,14 +492,6 @@ def main():
             finish(coin_name,most_profitable_coins)
         else:
             manually_mine(most_profitable_coins)
-
-        # Tidy up things a bit before sleeping the main thread.
-        del timer
-        del worker
-        del delay
-        del finished
-        del most_profitable_coins
-        del most_profitable_coin_name
 
 if __name__ == "__main__":
     #import argparse
